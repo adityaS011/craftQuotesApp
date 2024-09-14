@@ -3,9 +3,9 @@ import QuotesController from './components/QuotesController';
 
 const page = () => {
   return (
-    //<Suspense>
-    <QuotesController />
-    //</Suspense>
+    <Suspense>
+      <QuotesController />
+    </Suspense>
   );
 };
 

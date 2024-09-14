@@ -24,12 +24,11 @@ const QuotesController = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Calculate the offset based on the current page
   const offset = (page - 1) * limit;
 
   useEffect(() => {
     loadQuotes();
-  }, [page]); // Trigger loadQuotes when the page changes
+  }, [page]);
 
   const loadQuotes = async () => {
     setLoading(true);

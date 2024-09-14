@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { Quote } from '../quotes/components/QuotesController';
 
 // src/components/QuoteCard.tsx
