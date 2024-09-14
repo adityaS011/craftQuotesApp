@@ -2,8 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
-import QuoteCard from '../components/QuoteCard';
-import FloatingButton from '../components/FloatingButton';
+import QuoteList from './QuoteList';
 
 export type Quote = {
   createdAt: string;
@@ -14,7 +13,7 @@ export type Quote = {
   username: string;
 };
 
-const Quotes = () => {
+const QuotesController = () => {
   const searchParams = useSearchParams(); // To get query parameters
   const router = useRouter(); // To update the URL
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -90,34 +89,14 @@ const Quotes = () => {
       <div className='text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200 uppercase flex flex-row justify-center'>
         Image Quotes
       </div>
-      <div className='h-fit w-full flex flex-col justify-center mb-5'>
-        <div className='mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 p-4'>
-          {quotes.map((quote) => (
-            <QuoteCard key={quote.id} quote={quote} />
-          ))}
-        </div>
-        <div className='w-full gap-3 flex flex-row justify-center'>
-          {page > 1 && (
-            <button
-              className='w-fit bg-yellow-200 rounded-lg px-3 py-2'
-              onClick={() => changePage(page - 1)}
-            >
-              {'<<'} Previous Page
-            </button>
-          )}
-          {hasMore && (
-            <button
-              className='w-fit bg-yellow-200 rounded-lg px-3 py-2'
-              onClick={() => changePage(page + 1)}
-            >
-              Next Page {'>>'}
-            </button>
-          )}
-        </div>
-        <FloatingButton onClick={() => router.push('/create-quote')} />
-      </div>
+      <QuoteList
+        page={page}
+        hasMore={hasMore}
+        changePage={changePage}
+        quotes={quotes}
+      />
     </div>
   );
 };
 
-export default Quotes;
+export default QuotesController;

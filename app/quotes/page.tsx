@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
-import Quotes from './Quotes';
+import QuotesController from './components/QuotesController';
 
 const page = () => {
   return (
-    <Suspense>
-      <Quotes />
-    </Suspense>
+    //<Suspense>
+    <QuotesController />
+    //</Suspense>
   );
 };
 

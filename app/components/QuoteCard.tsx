@@ -1,21 +1,15 @@
+'use client';
 import Image from 'next/image';
+import { Quote } from '../quotes/components/QuotesController';
 
 // src/components/QuoteCard.tsx
-interface QuoteCardProps {
-  quote: {
-    mediaUrl: string;
-    text: string;
-    username: string;
-    createdAt: string;
-  };
-}
 
-export default function QuoteCard({ quote }: QuoteCardProps) {
+const QuoteCard = ({ quote }: { quote: Quote }) => {
   return (
     <div className=' p-2 flex flex-col gap-1'>
       <div className='relative bg-slate-50 shadow-md rounded-md overflow-hidden '>
         <Image
-          src={quote.mediaUrl}
+          src={quote.mediaUrl as string}
           className='w-full h-44 object-cover'
           alt='Quote image'
         />
@@ -34,4 +28,5 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
       </div>
     </div>
   );
-}
+};
+export default QuoteCard;
