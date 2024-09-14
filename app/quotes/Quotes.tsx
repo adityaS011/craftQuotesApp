@@ -14,7 +14,7 @@ export type Quote = {
   username: string;
 };
 
-const Home = () => {
+const Quotes = () => {
   const searchParams = useSearchParams(); // To get query parameters
   const router = useRouter(); // To update the URL
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -120,4 +120,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Quotes;

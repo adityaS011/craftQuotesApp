@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../page';
+import Quotes from './Quotes';
 
 const page = () => {
-  return <Home />;
+  return <Quotes />;
 };
 
 export default page;

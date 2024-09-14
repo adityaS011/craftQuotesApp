@@ -36,7 +36,7 @@ const CreateQuote = () => {
         if (res.status === 200) {
           setIsSuccess(true);
         }
-        router.push('/home');
+        router.push('/quotes');
       }
     } catch (error) {
       console.error('Quote creation failed', error);
