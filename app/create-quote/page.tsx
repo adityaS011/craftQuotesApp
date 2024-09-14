@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import CreateQuote from './CreateQuote';
 
 const page = () => {
-  return <CreateQuote />;
+  return (
+    <Suspense>
+      <CreateQuote />
+    </Suspense>
+  );
 };
 
 export default page;

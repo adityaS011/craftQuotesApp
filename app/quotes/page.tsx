@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Quotes from './Quotes';
 
 const page = () => {
-  return <Quotes />;
+  return (
+    <Suspense>
+      <Quotes />
+    </Suspense>
+  );
 };
 
 export default page;
