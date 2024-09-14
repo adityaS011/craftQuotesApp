@@ -8,7 +8,7 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
   return (
     <div className=' p-2 flex flex-col gap-1'>
       <div className='relative bg-slate-50 shadow-md rounded-md overflow-hidden '>
-        <Image
+        <img
           src={quote.mediaUrl as string}
           className='w-full h-44 object-cover'
           alt='Quote image'
