@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { Quote } from '../quotes/components/QuotesController';
 
 // src/components/QuoteCard.tsx
@@ -8,8 +9,8 @@ const QuoteCard = ({ quote }: { quote: Quote }) => {
     <div className=' p-2 flex flex-col gap-1'>
       <div className='relative bg-slate-50 shadow-md rounded-md overflow-hidden '>
         <img
-          src={quote.mediaUrl as string}
-          className='w-full h-44 object-cover'
+          src={quote.mediaUrl}
+          className='w-full h-44 object-fill'
           alt='Quote image'
         />
         <div className='absolute inset-0 flex items-end justify-start p-4 bg-black bg-opacity-50 text-white opacity-0 hover:opacity-100 transition-opacity duration-300'>
