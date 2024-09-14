@@ -14,7 +14,7 @@ export type Quote = {
   username: string;
 };
 
-export default function QuoteList() {
+const Home = () => {
   const searchParams = useSearchParams(); // To get query parameters
   const router = useRouter(); // To update the URL
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -118,4 +118,6 @@ export default function QuoteList() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;

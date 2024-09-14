@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 // src/components/QuoteCard.tsx
 interface QuoteCardProps {
   quote: {
@@ -12,7 +14,7 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
   return (
     <div className=' p-2 flex flex-col gap-1'>
       <div className='relative bg-slate-50 shadow-md rounded-md overflow-hidden '>
-        <img
+        <Image
           src={quote.mediaUrl}
           className='w-full h-44 object-cover'
           alt='Quote image'

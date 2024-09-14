@@ -1,8 +1,8 @@
 import React from 'react';
-import CreateQuote from './CreateQuote';
+import Home from '../page';
 
 const page = () => {
-  return <CreateQuote />;
+  return <Home />;
 };
 
 export default page;
