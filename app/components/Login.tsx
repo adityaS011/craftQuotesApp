@@ -19,7 +19,7 @@ export default function Login() {
         { username, otp: '1234' }
       );
       localStorage.setItem('token', response.data.token);
-      router.push('/home');
+      router.push('/quotes');
     } catch (error) {
       console.error('Login failed', error);
     }
