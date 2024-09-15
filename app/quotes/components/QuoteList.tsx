@@ -31,7 +31,7 @@ const QuoteList = ({
             className='w-fit bg-yellow-200 rounded-lg px-3 py-2'
             onClick={() => changePage(page - 1)}
           >
-            {'<<'} Previous Page
+            {'<<'} Previous
           </button>
         )}
         {hasMore && (
@@ -39,7 +39,7 @@ const QuoteList = ({
             className='w-fit bg-yellow-200 rounded-lg px-3 py-2'
             onClick={() => changePage(page + 1)}
           >
-            Next Page {'>>'}
+            Next {'>>'}
           </button>
         )}
       </div>

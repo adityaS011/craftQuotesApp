@@ -26,10 +26,6 @@ const QuotesController = () => {
 
   const offset = (page - 1) * limit;
 
-  useEffect(() => {
-    loadQuotes();
-  }, [page]);
-
   const loadQuotes = async () => {
     setLoading(true);
     const token = localStorage.getItem('token');
@@ -45,7 +41,9 @@ const QuotesController = () => {
         setHasMore(false);
       } else {
         setQuotes(response.data.data);
-        router.push(`?page=1`);
+        if (!searchParams.get('page')) {
+          router.push(`?page=1`);
+        }
       }
     } catch (error) {
       console.error('Failed to load quotes', error);
@@ -58,6 +56,10 @@ const QuotesController = () => {
     // Update the URL query parameter without resetting to 0
     router.push(`?page=${newPage}`);
   };
+
+  useEffect(() => {
+    loadQuotes();
+  }, [page]);
 
   if (loading) {
     return (
