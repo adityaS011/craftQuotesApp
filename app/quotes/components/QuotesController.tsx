@@ -55,6 +55,7 @@ const QuotesController = () => {
         } else {
           setHasMore(true);
         }
+        console.log(response.data.data);
         setQuotes(response.data.data);
         if (!searchParams.get('page')) {
           router.push(`?page=1`);

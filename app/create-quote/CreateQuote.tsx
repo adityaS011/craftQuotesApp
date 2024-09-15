@@ -25,7 +25,7 @@ const CreateQuote = () => {
           'https://crafto.app/crafto/v1.0/media/assignment/upload',
           formData
         );
-        const mediaUrl = mediaResponse.data.mediaUrl;
+        const mediaUrl = mediaResponse.data[0].url;
 
         const res = await axios.post(
           'https://assignment.stage.crafto.app/postQuote',
