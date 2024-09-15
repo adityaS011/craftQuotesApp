@@ -38,7 +38,7 @@ const QuotesController = () => {
       );
       setLoading(false);
       if (response.data.data.length === 0) {
-        setHasMore(false);
+        setHasMore(false); // to stop pagination
       } else {
         setQuotes(response.data.data);
         if (!searchParams.get('page')) {
