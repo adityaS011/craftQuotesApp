@@ -19,7 +19,7 @@ const QuoteList = ({
 
   // Function to handle page change
   return (
-    <div className='h-fit w-full flex flex-col justify-center mb-5'>
+    <div className='h-fit w-full flex flex-col justify-center mb-10'>
       <div className='mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 p-4'>
         {quotes.map((quote) => (
           <QuoteCard key={quote.id} quote={quote} />
