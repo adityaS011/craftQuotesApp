@@ -18,6 +18,7 @@ const QuotesController = () => {
   const searchParams = useSearchParams(); // To get query parameters
   const router = useRouter(); // To update the URL
   const [quotes, setQuotes] = useState<Quote[]>([]);
+
   const [limit] = useState(20); // Number of quotes per page
   const [page, setPage] = useState<number>(
     parseInt(searchParams.get('page') || '1') // Initialize from URL query
@@ -34,6 +35,7 @@ const QuotesController = () => {
     if (!token) {
       console.error('No token found. Please log in.');
       setLoading(false);
+      router.push('/');
       return;
     }
     try {
@@ -81,8 +83,25 @@ const QuotesController = () => {
   if (loading) {
     return (
       <div className='flex flex-col gap-4 bg-slate-50'>
-        <div className='text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200 uppercase flex flex-row justify-center'>
-          Image Quotes
+        <div className='px-6 text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200  flex flex-row justify-center'>
+          <p className='uppercase'>Image Quotes</p>
+          <div className='ml-auto flex flex-row gap-3 items-center'>
+            <p
+              onClick={() => changePage(1)}
+              className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+            >
+              Home
+            </p>
+            <p
+              onClick={() => {
+                localStorage.removeItem('token');
+                router.push('/');
+              }}
+              className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+            >
+              Logout
+            </p>
+          </div>
         </div>
         <div className='flex flex-row mt-4'>
           <div className='flex flex-row gap-4 ml-6 p-2 w-28 h-8 bg-[#F4F4F5] animate-pulse rounded-lg text-slate-600 font-medium'></div>
@@ -106,8 +125,25 @@ const QuotesController = () => {
   if (quotes.length === 0) {
     return (
       <div className='flex flex-col gap-4 bg-slate-50'>
-        <div className='text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200 uppercase flex flex-row justify-center'>
-          Image Quotes
+        <div className='px-6 text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200  flex flex-row justify-center'>
+          <p className='uppercase'>Image Quotes</p>
+          <div className='ml-auto flex flex-row gap-3 items-center'>
+            <p
+              onClick={() => changePage(1)}
+              className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+            >
+              Home
+            </p>
+            <p
+              onClick={() => {
+                localStorage.removeItem('token');
+                router.push('/');
+              }}
+              className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+            >
+              Logout
+            </p>
+          </div>
         </div>
         <div className='text-xl flex flex-row justify-center items-center w-full  h-screen text-gray-700'>
           Oops! No Quotes Found
@@ -119,8 +155,25 @@ const QuotesController = () => {
   // Return the list of quotes if not loading and quotes are found
   return (
     <div className='flex flex-col gap-4 bg-slate-50'>
-      <div className='text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200 uppercase flex flex-row justify-center'>
-        Image Quotes
+      <div className='px-6 text-2xl font-light font-serif bg-gradient-to-b from-white to-blue-50 w-full pt-3 pb-2 border-b border-slate-200  flex flex-row justify-center'>
+        <p className='uppercase'>Image Quotes</p>
+        <div className='ml-auto flex flex-row gap-3 items-center'>
+          <p
+            onClick={() => changePage(1)}
+            className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+          >
+            Home
+          </p>
+          <p
+            onClick={() => {
+              localStorage.removeItem('token');
+              router.push('/');
+            }}
+            className='cursor-pointer text-sm  hover:text-blue-800 underline  rounded-md '
+          >
+            Logout
+          </p>
+        </div>
       </div>
 
       <div className='flex flex-row gap-4 mt-2 ml-6'>
