@@ -23,7 +23,10 @@ export default function Login() {
         'https://assignment.stage.crafto.app/login',
         { username, otp: '1234' }
       );
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+
       localStorage.setItem('token', response.data.token);
       router.push('/quotes');
     } catch (error) {
@@ -32,8 +35,8 @@ export default function Login() {
   };
 
   return (
-    <div className='h-screen bg-slate-50 flex items-center justify-center'>
-      <div className='bg-gradient-to-r from-slate-100 to to-slate-200 p-8 shadow-md'>
+    <div className='h-screen bg-slate-50 flex items-center justify-center '>
+      <div className='bg-gradient-to-r from-slate-100 to to-slate-200 p-8 shadow-md m-2'>
         <h1 className='text-xl font-medium mb-4 uppercase text-center'>
           Welcome to Craft Quotes
         </h1>
@@ -55,7 +58,7 @@ export default function Login() {
         />
         <div className='flex flex-row w-full items-center justify-center'>
           {isLoading ? (
-            <p className='bg-blue-400 text-white py-2 px-8 w-fit rounded-md'>
+            <p className='bg-blue-400 text-slate-200 py-2 px-8 w-fit rounded-md'>
               Loading...
             </p>
           ) : (
